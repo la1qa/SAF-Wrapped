@@ -17,7 +17,7 @@ function App() {
   };
 
     return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col font-sony">
       <Header />
       <main className="flex-1">
         {reservations ? (
