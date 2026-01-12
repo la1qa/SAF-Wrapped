@@ -26,12 +26,9 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 flex items-center justify-center p-6">
-      <div className="max-w-md w-full">
+    <div className="flex items-center justify-center p-6">
+      <div className="max-w-full w-full">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-            <Upload className="w-8 h-8 text-blue-600" />
-          </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
             Descobreix el teus hàbits al SAF. 
           </h1>
@@ -62,7 +59,9 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
               className="hidden"
             />
           </label>
-
+          <span className="block text-center text-gray-500 text-sm mt-4">
+            No guardem ni recollim aquestes dades.
+          </span>
           <div className="mt-6 p-4 bg-gray-50 rounded-lg">
             <p className="text-xs text-gray-600 mb-2 font-medium">Format esperat:</p>
             <code className="text-xs text-gray-500 block">

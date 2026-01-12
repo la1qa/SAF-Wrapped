@@ -3,6 +3,7 @@ import FileUpload from './components/FileUpload';
 import Dashboard from './components/Dashboard';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import HowTo from './components/HowTo';
 import type { Reservation } from './types/reservation';
 
 function App() {
@@ -23,7 +24,10 @@ function App() {
         {reservations ? (
           <Dashboard reservations={reservations} onReset={handleReset} />
         ) : (
-          <FileUpload onDataLoaded={handleDataLoaded} />
+          <div className="max-w-3xl mx-auto">
+            <FileUpload onDataLoaded={handleDataLoaded} />
+            <HowTo />
+          </div>
         )}
       </main>
       <Footer />

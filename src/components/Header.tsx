@@ -6,7 +6,7 @@ export default function Header() {
           <img 
             src="https://uab.deporsite.net/img/logo_main.png" 
             alt="SAF Logo" 
-            className="h-18 w-auto" // Changed from h-16 to h-12
+            className="h-14 w-auto" // Changed from h-16 to h-12
           />
           <h1 className="text-5xl font-bold text-[#e31139] tracking-wide">
             Wrapped
