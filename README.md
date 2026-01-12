@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -71,3 +72,7 @@ export default defineConfig([
   },
 ])
 ```
+=======
+# SAF-Wrapped
+Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en l'Spotify Wrapped.
+>>>>>>> c4c96e0afaa75e815a4a6d729a7fd11f171d35ca
