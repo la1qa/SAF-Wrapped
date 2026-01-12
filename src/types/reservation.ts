@@ -1,0 +1,17 @@
+export interface Reservation {
+  codi: string;
+  data: string;
+  horari: string;
+  dummy: string;
+  nom: string;
+  informacio: string;
+  parsedDate: Date;
+}
+
+export interface ReservationStats {
+  totalReservations: number;
+  uniqueDays: number;
+  topRooms: { name: string; count: number }[];
+  topTimeSlots: { time: string; count: number }[];
+  reservationsByMonth: { month: string; count: number }[];
+}
