@@ -1,5 +1,5 @@
 # SAF-Wrapped 💪 
-Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en el T-Wrapped inspirat en l'Spotify Wrapped.
+Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en el T-Wrapped (inspirat en l'Spotify Wrapped).
 
 ## Característiques
 
@@ -25,10 +25,10 @@ Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en el
 
 ```bash
 # Clona el repositori
-git clone https://github.com/socenpauriba/t-wrapped.git
+git clone https://github.com/la1qa/SAF-Wrapped.git
 
 # Accedeix al directori
-cd t-wrapped
+cd SAF-Wrapped
 
 # Instal·la les dependències
 npm install
