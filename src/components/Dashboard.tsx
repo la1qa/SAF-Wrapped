@@ -17,7 +17,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Reservation Analytics
+              Descobreix el teus hàbits al SAF. Puja el teu fitxer CSV i obté un resum personalitzat del teu ús de les instal·lacions!
             </h1>
             <p className="text-gray-600">
               Insights from {stats.totalReservations} reservations
@@ -28,7 +28,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
             className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 hover:border-blue-300"
           >
             <Upload className="w-4 h-4" />
-            Upload New File
+            Analitza un altre fitxer
           </button>
         </div>
 
@@ -118,7 +118,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
 
           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
             <h2 className="text-xl font-bold text-gray-900 mb-6">
-              Reservations by Month
+              Reserves per mesos
             </h2>
             <div className="space-y-4">
               {stats.reservationsByMonth.map((month, index) => (
