@@ -33,10 +33,10 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
             <Upload className="w-8 h-8 text-blue-600" />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            Reservation Analytics
+            Descobreix el teus hàbits al SAF. 
           </h1>
           <p className="text-gray-600">
-            Upload your CSV file to view insights and analytics
+            Puja el teu fitxer CSV i obté un resum personalitzat del teu ús de les instal·lacions!
           </p>
         </div>
 
@@ -48,10 +48,10 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
             <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-blue-500 hover:bg-blue-50 transition-all">
               <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <p className="text-sm font-medium text-gray-700 mb-1">
-                Click to upload CSV
+                Fes clic per pujar el CSV
               </p>
               <p className="text-xs text-gray-500">
-                CSV file with reservation data
+                Fitxer CSV amb dades de reserves
               </p>
             </div>
             <input
@@ -64,7 +64,7 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
           </label>
 
           <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-            <p className="text-xs text-gray-600 mb-2 font-medium">Expected format:</p>
+            <p className="text-xs text-gray-600 mb-2 font-medium">Format esperat:</p>
             <code className="text-xs text-gray-500 block">
               "Codi","Data","Horari","dummy","Nom","Informacio"
             </code>

@@ -104,11 +104,11 @@ export default function Calendar({ reservations }: CalendarProps) {
       <div className="mt-4 flex items-center gap-4 text-sm">
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 bg-blue-500 rounded" />
-          <span className="text-gray-600">Has reservation</span>
+          <span className="text-gray-600">Té reserva</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-4 h-4 bg-white border-2 border-blue-500 rounded" />
-          <span className="text-gray-600">Today</span>
+          <span className="text-gray-600">Avui</span>
         </div>
       </div>
     </div>
