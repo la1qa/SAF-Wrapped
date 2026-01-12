@@ -18,7 +18,7 @@ export default function Footer() {
           <div>
             Inspirat en {' '}
             <a 
-              href="https://https://t-wrapped.nuvol.cat/" 
+              href="https://t-wrapped.nuvol.cat/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-[#009889] hover:text-[#86c04d] transition-colors duration-200"
@@ -27,7 +27,7 @@ export default function Footer() {
             </a>
              {' '} de {' '}
             <a 
-              href="https://https://nuvol.cat/" 
+              href="https://nuvol.cat/" 
               target="_blank"
               rel="noopener noreferrer"
               className="text-[#009889] hover:text-[#86c04d] transition-colors duration-200"
