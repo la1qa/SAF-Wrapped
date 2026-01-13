@@ -63,12 +63,12 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
             className="block cursor-pointer"
           >
             <div 
-              className="bg-white border-2 border-dashed border-[#28a35e] rounded-lg p-12 text-center hover:border-[#005d28] hover:bg-[#e9fae9] transition-all"
+              className="group bg-white border-2 border-dashed border-[#28a35e] rounded-lg p-12 text-center hover:border-[#e44562] hover:bg-[#fde1e6] transition-all"
               onDrop={handleDrop}
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
             >
-              <Upload className="w-12 h-12 text-[#005d28] mx-auto mb-4" />
+              <Upload className="w-12 h-12 text-[#005d28] group-hover:text-[#e31139] mx-auto mb-4" />
               <p className="text-lg font-medium text-gray-700 mb-1">
                 Arrossega el teu fitxer CSV aquí
               </p>
