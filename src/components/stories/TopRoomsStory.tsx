@@ -1,4 +1,3 @@
-import React from "react";
 import logoImage from "../../assets/logo_main.webp";
 
 interface Props {

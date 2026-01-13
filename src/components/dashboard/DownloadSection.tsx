@@ -3,7 +3,6 @@ import { Download } from "lucide-react";
 import { toPng } from "html-to-image";
 import { TopRoomsStory } from "../stories/TopRoomsStory";
 import ReactDOM from "react-dom/client";
-import { TimeDensityStory } from "../stories/TimeDensityStory";
 
 interface DownloadSectionProps {
   stats: {
