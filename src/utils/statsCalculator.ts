@@ -25,7 +25,6 @@ export function calculateStats(reservations: Reservation[]): ReservationStats {
   const monthCounts = new Map<string, number>();
   const minuteCounts = new Map<number, number>();
   const reservationsByDate = new Map<string, Reservation[]>();
-  const hoursPerWeek: number[] = [];
 
   reservations.forEach(reservation => {
     const dateStr = reservation.parsedDate.toISOString().split('T')[0];
