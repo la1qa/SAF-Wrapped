@@ -10,7 +10,6 @@ interface DownloadSectionProps {
     uniqueDays: number;
     topRooms: { name: string; count: number }[];
     topTimeSlots: { time: string; count: number }[];
-    timeDensity: { period: string; count: number }[];
   };
 }
 
