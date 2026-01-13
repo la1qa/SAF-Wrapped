@@ -20,6 +20,9 @@ export function parseCSV(csvContent: string): Reservation[] {
 
     const [codi, data, horari, dummy, nom, informacio] = values;
 
+    // Skip entries with CITA
+    if (nom.includes('CITA')) continue;
+
     const parsedDate = parseDate(data);
     
     // Normalize room names to remove day-specific suffixes and pista numbers

@@ -3,6 +3,8 @@ import { calculateStats } from '../utils/statsCalculator';
 import Calendar from './dashboard/Calendar';
 import { BarChart3, Clock, Calendar as CalendarIcon, Dumbbell, Upload, Flame, TrendingUp } from 'lucide-react';
 import { TimeDensity } from './dashboard/ViolinPlot';
+import DownloadSection from './dashboard/DownloadSection';
+import { useRef } from 'react';
 
 interface DashboardProps {
   reservations: Reservation[];
@@ -11,6 +13,11 @@ interface DashboardProps {
 
 export default function Dashboard({ reservations, onReset }: DashboardProps) {
   const stats = calculateStats(reservations);
+  const statsRef = useRef<HTMLDivElement>(null!);
+  const calendarRef = useRef<HTMLDivElement>(null!);
+  const topRoomsRef = useRef<HTMLDivElement>(null!);
+  const streakRef = useRef<HTMLDivElement>(null!);
+  const violinRef = useRef<HTMLDivElement>(null!);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
@@ -23,7 +30,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8" ref={statsRef}>
           <StatCard
             icon={<BarChart3 className="w-6 h-6" />}
             label="Reserves Totals"
@@ -50,13 +57,13 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
           />
         </div>
 
-        <div className="mb-8">
+        <div className="mb-8" ref={calendarRef}>
           <Calendar reservations={reservations} />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100" ref={topRoomsRef}>
             <h2 className="text-xl font-bold text-gray-900 mb-6">Top de Reserves Més Utilitzades</h2>
             <div className="space-y-4">
               {stats.topRooms.map((room, index) => (
@@ -82,7 +89,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100" ref={streakRef}>
             <h2 className="text-xl font-bold text-gray-900 mb-6">Estadístiques de Ratxes</h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -121,13 +128,17 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 lg:col-span-2">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Densitat d'Ús per Minut del Dia</h2>
+          <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 lg:col-span-2" ref={violinRef}>
+            <h2 className="text-xl font-bold text-gray-900 mb-2">Densitat d'Ús per Minut del Dia</h2>
             <div className="flex justify-center">
               <TimeDensity data={stats.timeDensity} />
             </div>
           </div>
         </div>
+
+        <DownloadSection
+          stats={stats}
+        />
 
         <div className="mt-8 flex justify-center">
           <button

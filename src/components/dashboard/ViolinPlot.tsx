@@ -89,10 +89,15 @@ export function TimeDensity({
       <svg 
         width={width} 
         height={height} 
-        className="overflow-visible"
+        className="overflow-hidden"
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
+        <defs>
+          <clipPath id="labelClip">
+            <rect x="0" y="0" width={width} height={height} />
+          </clipPath>
+        </defs>
         {/* Vertical axis line */}
         <line
           x1={centerX}
@@ -105,7 +110,7 @@ export function TimeDensity({
         
         {/* Time labels */}
         {timeLabels.map(minute => (
-          <g key={minute}>
+          <g key={minute} clipPath="url(#labelClip)">
             <line
               x1={centerX - 5}
               y1={yScale(minute)}
@@ -118,7 +123,7 @@ export function TimeDensity({
               x={5}
               y={yScale(minute)}
               textAnchor="start"
-              fontSize={10}
+              fontSize={8}
               fill="#6b7280"
               dominantBaseline="middle"
             >
@@ -128,7 +133,7 @@ export function TimeDensity({
               x={width - 5}
               y={yScale(minute)}
               textAnchor="end"
-              fontSize={10}
+              fontSize={8}
               fill="#6b7280"
               dominantBaseline="middle"
             >
