@@ -8,10 +8,16 @@ export interface Reservation {
   parsedDate: Date;
 }
 
+export interface TimeDensityPoint {
+  minute: number;
+  count: number;
+}
+
 export interface ReservationStats {
   totalReservations: number;
   uniqueDays: number;
   topRooms: { name: string; count: number }[];
   topTimeSlots: { time: string; count: number }[];
   reservationsByMonth: { month: string; count: number }[];
+  timeDensity: TimeDensityPoint[];
 }

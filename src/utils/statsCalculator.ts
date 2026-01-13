@@ -1,10 +1,29 @@
 import type { Reservation, ReservationStats } from '../types/reservation';
 
+function timeToMinutes(time: string): number {
+  const [h, m] = time.split(":").map(Number);
+  return h * 60 + m;
+}
+
+function expandHorari(horari: string, step = 5): number[] {
+  const [start, end] = horari.split("-");
+  const startMin = timeToMinutes(start);
+  const endMin = timeToMinutes(end);
+
+  const minutes: number[] = [];
+  for (let m = startMin; m < endMin; m += step) {
+    minutes.push(m);
+  }
+  return minutes;
+}
+
+
 export function calculateStats(reservations: Reservation[]): ReservationStats {
   const uniqueDaysSet = new Set<string>();
   const roomCounts = new Map<string, number>();
   const timeSlotCounts = new Map<string, number>();
   const monthCounts = new Map<string, number>();
+  const minuteCounts = new Map<number, number>();
 
   reservations.forEach(reservation => {
     uniqueDaysSet.add(reservation.data);
@@ -14,6 +33,10 @@ export function calculateStats(reservations: Reservation[]): ReservationStats {
 
     const timeSlot = reservation.horari;
     timeSlotCounts.set(timeSlot, (timeSlotCounts.get(timeSlot) || 0) + 1);
+
+    expandHorari(timeSlot).forEach(min => {
+      minuteCounts.set(min, (minuteCounts.get(min) || 0) + 1);
+    });
 
     const monthYear = reservation.parsedDate.toLocaleDateString('en-US', {
       month: 'short',
@@ -40,11 +63,16 @@ export function calculateStats(reservations: Reservation[]): ReservationStats {
       return dateA.getTime() - dateB.getTime();
     });
 
+  const timeDensity = Array.from(minuteCounts.entries())
+    .map(([minute, count]) => ({ minute, count }))
+    .sort((a, b) => a.minute - b.minute);
+
   return {
     totalReservations: reservations.length,
     uniqueDays: uniqueDaysSet.size,
     topRooms,
     topTimeSlots,
     reservationsByMonth,
+    timeDensity,
   };
 }

@@ -13,6 +13,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "d3-array": "^3.2.4",
+    "d3-scale": "^4.0.2",
+    "d3-shape": "^3.2.0",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-calendar-heatmap": "^1.10.0",
@@ -21,6 +24,9 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@tailwindcss/postcss": "^4.1.18",
+    "@types/d3-array": "^3.2.2",
+    "@types/d3-scale": "^4.0.9",
+    "@types/d3-shape": "^3.1.8",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-calendar-heatmap": "^1.9.0",

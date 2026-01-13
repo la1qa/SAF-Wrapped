@@ -28,19 +28,32 @@ export default function Calendar({ reservations }: CalendarProps) {
     count,
   }));
 
-  // Get date range (last year from today)
+  // Find the year with most reservations
+  const yearCounts: { [year: number]: number } = {};
+  reservations.forEach(r => {
+    const year = r.parsedDate.getFullYear();
+    yearCounts[year] = (yearCounts[year] || 0) + 1;
+  });
+
+  const primaryYear = Object.entries(yearCounts).sort((a, b) => b[1] - a[1])[0]?.[0] 
+    ? parseInt(Object.entries(yearCounts).sort((a, b) => b[1] - a[1])[0][0])
+    : new Date().getFullYear();
+
+  const startDate = new Date(primaryYear, 0, 1); // January 1st of primary year
   const today = new Date();
-  const oneYearAgo = new Date(today.getFullYear() - 1, today.getMonth(), today.getDate());
+  const endDate = primaryYear === today.getFullYear() 
+    ? today 
+    : new Date(primaryYear, 11, 31); // December 31st if not current year
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
       <h2 className="text-xl font-bold text-gray-900 mb-6">Activitat anual</h2>
       
-      <div className="overflow-x-auto md:overflow-visible">
+      <div className="overflow-x-auto md:overflow-visible p-4">
         <div className="md:hidden">
           <Heatmap
-            startDate={oneYearAgo}
-            endDate={today}
+            startDate={startDate}
+            endDate={endDate}
             values={data}
             horizontal={false}
             classForValue={(value: CalendarDay | undefined) => {
@@ -62,8 +75,8 @@ export default function Calendar({ reservations }: CalendarProps) {
         </div>
         <div className="hidden md:block">
           <Heatmap
-            startDate={oneYearAgo}
-            endDate={today}
+            startDate={startDate}
+            endDate={endDate}
             values={data}
             classForValue={(value: CalendarDay | undefined) => {
               if (!value) {
@@ -73,7 +86,7 @@ export default function Calendar({ reservations }: CalendarProps) {
               if (value.count === 1) return 'color-scale-3';
               return 'color-scale-4';
             }}
-            showWeekdayLabels={true}
+            showWeekdayLabels={false}
             tooltipDataAttrs={{
               'data-tooltip': (value: CalendarDay | undefined) => {
                 if (!value || value.count === 0) return 'No activity';
