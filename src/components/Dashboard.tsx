@@ -1,6 +1,6 @@
 import type { Reservation } from '../types/reservation';
 import { calculateStats } from '../utils/statsCalculator';
-import Calendar from './Calendar';
+import Calendar from './dashboard/Calendar';
 import { BarChart3, Clock, Calendar as CalendarIcon, MapPin, Upload } from 'lucide-react';
 
 interface DashboardProps {
@@ -19,17 +19,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
               El teu SAF Wrapped
             </h1>
-            <p className="text-gray-600">
-              Insights from {stats.totalReservations} reservations
-            </p>
           </div>
-          <button
-            onClick={onReset}
-            className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 hover:border-blue-300"
-          >
-            <Upload className="w-4 h-4" />
-            Analitza un altre fitxer
-          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -59,8 +49,11 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="mb-8">
           <Calendar reservations={reservations} />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 
           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Top Rooms</h2>
@@ -147,6 +140,15 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
               ))}
             </div>
           </div>
+        </div>
+        <div className="mt-8 flex justify-center">
+          <button
+              onClick={onReset}
+              className="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 hover:border-blue-300"
+            >
+              <Upload className="w-4 h-4" />
+              Analitza un altre fitxer
+          </button>
         </div>
       </div>
     </div>

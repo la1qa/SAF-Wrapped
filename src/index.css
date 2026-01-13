@@ -6,23 +6,23 @@
 }
 
 .react-calendar-heatmap .color-empty {
-  fill: #ebedf0;
+  fill: #f0f0f0;
 }
 
 .react-calendar-heatmap .color-scale-1 {
-  fill: #9be9a8;
+  fill: #ffd0d7;
 }
 
 .react-calendar-heatmap .color-scale-2 {
-  fill: #40c463;
+  fill: #ffb3c1;
 }
 
 .react-calendar-heatmap .color-scale-3 {
-  fill: #30a14e;
+  fill: #ff7a8a;
 }
 
 .react-calendar-heatmap .color-scale-4 {
-  fill: #216e39;
+  fill: #e31139;
 }
 
 /* Thin border around each day square */

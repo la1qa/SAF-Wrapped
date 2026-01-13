@@ -1,3 +1,5 @@
+import { Github } from 'lucide-react';
+
 export default function Footer() {
   return (
     <footer className="w-full py-6 px-4 bg-white border-t border-gray-200">
@@ -41,8 +43,9 @@ export default function Footer() {
               href="https://github.com/la1qa/SAF-Wrapped" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="flex items-center text-[#009889] hover:text-[#86c04d] transition-colors duration-200"
+              className="flex items-center gap-1 text-[#009889] hover:text-[#86c04d] transition-colors duration-200"
             >
+              <Github className="w-4 h-4" />
               Consulta el codi
             </a>
           </div>
