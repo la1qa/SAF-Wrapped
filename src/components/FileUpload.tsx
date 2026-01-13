@@ -89,7 +89,7 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
           </span>
           <div className="mt-6 p-4 bg-gray-50 rounded-lg">
             <p className="text-xs text-gray-600 mb-2 font-medium">Format esperat:</p>
-            <code className="text-xs text-gray-500 block">
+            <code className="text-xs text-gray-500 block overflow-x-auto whitespace-nowrap">
               "Codi","Data","Horari","dummy","Nom","Informacio"
             </code>
           </div>
