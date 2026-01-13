@@ -17,7 +17,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Descobreix el teus hàbits al SAF.
+              El teu SAF Wrapped
             </h1>
             <p className="text-gray-600">
               Insights from {stats.totalReservations} reservations

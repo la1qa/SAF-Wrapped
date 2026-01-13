@@ -1,5 +1,5 @@
 # SAF-Wrapped 💪 
-Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en el T-Wrapped (inspirat en l'Spotify Wrapped).
+Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en el [T-Wrapped](https://github.com/socenpauriba/T-wrapped) (inspirat en l'Spotify Wrapped).
 
 ## Característiques
 
@@ -59,4 +59,8 @@ Les contribucions són benvingudes! Si tens alguna idea per millorar el projecte
 
 ## ⚠️ Avís Legal
 
-Aquest és un projecte no oficial creat en clau humorística i no està vinculat a SAF ni a la Universitat Autònoma de Barcelona.
+Aquest és un projecte no oficial creat en clau humorística i no està vinculat al SAF ni a la Universitat Autònoma de Barcelona.
+
+---
+
+Fet amb ❤️ a Catalunya

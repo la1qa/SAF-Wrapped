@@ -7,10 +7,7 @@ interface FileUploadProps {
 }
 
 export default function FileUpload({ onDataLoaded }: FileUploadProps) {
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (!file) return;
-
+  const processFile = (file: File) => {
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
@@ -25,6 +22,29 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
     reader.readAsText(file);
   };
 
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+    processFile(file);
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.currentTarget.classList.remove('border-blue-500', 'bg-blue-50');
+    const file = e.dataTransfer.files?.[0];
+    if (!file) return;
+    processFile(file);
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.currentTarget.classList.add('border-blue-500', 'bg-blue-50');
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.currentTarget.classList.remove('border-blue-500', 'bg-blue-50');
+  };
+
   return (
     <div className="flex items-center justify-center p-6">
       <div className="max-w-full w-full">
@@ -37,18 +57,23 @@ export default function FileUpload({ onDataLoaded }: FileUploadProps) {
           </p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
+        <div className="mx-auto max-w-md w-full">
           <label
             htmlFor="csv-upload"
             className="block cursor-pointer"
           >
-            <div className="border-2 border-dashed border-gray-300 rounded-lg p-12 text-center hover:border-blue-500 hover:bg-blue-50 transition-all">
-              <Upload className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-sm font-medium text-gray-700 mb-1">
-                Fes clic per pujar el CSV
+            <div 
+              className="bg-white border-2 border-dashed border-[#28a35e] rounded-lg p-12 text-center hover:border-[#005d28] hover:bg-[#e9fae9] transition-all"
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+              onDragLeave={handleDragLeave}
+            >
+              <Upload className="w-12 h-12 text-[#005d28] mx-auto mb-4" />
+              <p className="text-lg font-medium text-gray-700 mb-1">
+                Arrossega el teu fitxer CSV aquí
               </p>
-              <p className="text-xs text-gray-500">
-                Fitxer CSV amb dades de reserves
+              <p className="text-sm text-gray-500">
+                o fes clic per seleccionar-lo
               </p>
             </div>
             <input

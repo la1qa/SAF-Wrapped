@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="w-full py-6 px-4 mt-12 bg-white border-t border-gray-200">
+    <footer className="w-full py-6 px-4 bg-white border-t border-gray-200">
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-600">
           <div className="flex items-center">
-            Fet amb amor ❤️ des de Catalunya per{' '}
+            Fet amb amor ❤️ a Catalunya per{' '}
             <a 
               href="https://la1qa.github.io/" 
               target="_blank" 
