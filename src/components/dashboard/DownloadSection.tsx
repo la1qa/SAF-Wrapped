@@ -144,7 +144,7 @@ export default function DownloadSection({
         <DownloadButton
           label="Densitat horària"
           color="green"
-          onClick={() => downloadStory(<TimeDensityStory timeDensity={stats.timeDensity} />, "SAF-Wrapped-TimeDensity")}
+          onClick={() => downloadStory(<TopRoomsStory topRooms={stats.topRooms} />, "SAF-Wrapped-TimeDensity")}
         />
       </div>
     </div>
