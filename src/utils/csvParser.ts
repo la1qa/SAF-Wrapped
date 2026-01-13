@@ -21,13 +21,19 @@ export function parseCSV(csvContent: string): Reservation[] {
     const [codi, data, horari, dummy, nom, informacio] = values;
 
     const parsedDate = parseDate(data);
+    
+    // Normalize room names to remove day-specific suffixes and pista numbers
+    const normalizedNom = nom
+      .replace(/\s*\((dl-dv|ds-dg)[^)]*\)\s*$/i, '') // Remove day suffixes
+      .replace(/\s*-\s*PISTA\s+\d+/i, '') // Remove pista numbers
+      .trim();
 
     reservations.push({
       codi,
       data,
       horari,
       dummy,
-      nom,
+      nom: normalizedNom,
       informacio,
       parsedDate,
     });

@@ -1,7 +1,7 @@
 import type { Reservation } from '../types/reservation';
 import { calculateStats } from '../utils/statsCalculator';
 import Calendar from './dashboard/Calendar';
-import { BarChart3, Clock, Calendar as CalendarIcon, MapPin, Upload } from 'lucide-react';
+import { BarChart3, Clock, Calendar as CalendarIcon, Dumbbell, Upload, Flame, TrendingUp } from 'lucide-react';
 import { TimeDensity } from './dashboard/ViolinPlot';
 
 interface DashboardProps {
@@ -37,7 +37,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
             color="green"
           />
           <StatCard
-            icon={<MapPin className="w-6 h-6" />}
+            icon={<Dumbbell className="w-6 h-6" />}
             label="Tipus de Reserva Més Utilitzat"
             value={stats.topRooms[0]?.name.substring(0, 15) || 'N/A'}
             color="purple"
@@ -57,7 +57,7 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
 
           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Top Rooms</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Top de Reserves Més Utilitzades</h2>
             <div className="space-y-4">
               {stats.topRooms.map((room, index) => (
                 <div key={index}>
@@ -83,35 +83,49 @@ export default function Dashboard({ reservations, onReset }: DashboardProps) {
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Top Time Slots</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-6">Estadístiques de Ratxes</h2>
             <div className="space-y-4">
-              {stats.topTimeSlots.map((slot, index) => (
-                <div key={index}>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-gray-700">
-                      {slot.time}
-                    </span>
-                    <span className="text-sm font-bold text-green-600">
-                      {slot.count}
-                    </span>
-                  </div>
-                  <div className="w-full bg-gray-100 rounded-full h-2">
-                    <div
-                      className="bg-green-500 h-2 rounded-full transition-all"
-                      style={{
-                        width: `${(slot.count / stats.topTimeSlots[0].count) * 100}%`,
-                      }}
-                    />
-                  </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Flame className="w-5 h-5 text-red-500" />
+                  <span className="text-sm font-medium text-gray-700">Ratxa més llarga (dies)</span>
                 </div>
-              ))}
+                <span className="text-2xl font-bold text-red-600">{stats.longestDayStreak}</span>
+              </div>
+              <hr className="border-gray-200" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <TrendingUp className="w-5 h-5 text-green-500" />
+                  <span className="text-sm font-medium text-gray-700">Ratxa més llarga (setmanes)</span>
+                </div>
+                <span className="text-2xl font-bold text-green-600">{stats.longestWeekStreak}</span>
+              </div>
+              <hr className="border-gray-200" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Clock className="w-5 h-5 text-blue-500" />
+                  <span className="text-sm font-medium text-gray-700">Mediana d'hores per setmana*</span>
+                </div>
+                <span className="text-2xl font-bold text-blue-600">{stats.medianHoursPerWeek.toFixed(1)}h</span>
+              </div>
+              <hr className="border-gray-200" />
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <BarChart3 className="w-5 h-5 text-purple-500" />
+                  <span className="text-sm font-medium text-gray-700">Mitjana d'hores per setmana*</span>
+                </div>
+                <span className="text-2xl font-bold text-purple-600">{stats.meanHoursPerWeek.toFixed(1)}h</span>
+              </div>
+              <hr className="border-gray-200" />
+              <p className="text-xs text-gray-500 mt-2">*Només computa les setmanes dels mesos amb activitat</p>
             </div>
-
           </div>
 
           <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100 lg:col-span-2">
             <h2 className="text-xl font-bold text-gray-900 mb-6">Densitat d'Ús per Minut del Dia</h2>
-            <TimeDensity data={stats.timeDensity} />
+            <div className="flex justify-center">
+              <TimeDensity data={stats.timeDensity} />
+            </div>
           </div>
         </div>
 

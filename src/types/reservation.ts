@@ -20,4 +20,8 @@ export interface ReservationStats {
   topTimeSlots: { time: string; count: number }[];
   reservationsByMonth: { month: string; count: number }[];
   timeDensity: TimeDensityPoint[];
+  longestWeekStreak: number;
+  longestDayStreak: number;
+  medianHoursPerWeek: number;
+  meanHoursPerWeek: number;
 }
