@@ -16,7 +16,7 @@ Permet visualitzar l'us del Servei d'Activitat Física de la UAB, inspirat en el
 
 ## 🛠️ Desenvolupament
 
-### Prerequisites
+### Prerequisits
 
 - Node.js (versió 18 o superior)
 - npm
